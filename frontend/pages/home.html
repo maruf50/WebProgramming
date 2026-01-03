@@ -6,6 +6,7 @@
     <title>UniRoom - Dashboard</title>
     <link rel="stylesheet" href="../style.css"> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../js/main.js"></script>
 </head>
 <body>
 
@@ -15,20 +16,66 @@
             <span>UniRoom</span>
         </div>
         <ul class="nav-links">
-            <ul class="nav-links">
-            <li><a href="home.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="home.html" class="active"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
             <li><a href="search.html"><i class='bx bx-search-alt'></i> Search Rooms</a></li>
             <li><a href="bookings.html"><i class='bx bx-calendar-check'></i> My Bookings</a></li>
             <li><a href="pending.html"><i class='bx bx-bell'></i> Pending Tasks</a></li>
-        </ul>
         </ul>
     </nav>
 
     <main class="main-content">
         <header>
-            <h1>Welcome Back, <span id="username">Professor Smith</span></h1>
-            <div class="user-profile">
-                <span class="badge faculty">Faculty</span>
+            <div class="welcome">
+                <h1>Dashboard</h1>
+                <p>Welcome back, <strong id="user-name">User Name</strong></p>
+            </div>
+            <div class="header-controls">
+                <div class="notification-container" onclick="toggleNotifications()">
+                    <div class="notif-icon">
+                        <i class='bx bxs-bell'></i>
+                        <span class="badge" id="notif-count">2</span>
+                    </div>
+                    
+                    <div id="notif-dropdown" class="dropdown-content">
+                        <div class="dropdown-header">Notifications</div>
+                        <ul id="notif-items">
+                            <li class="unread">
+                                <strong>Booking Alert</strong>
+                                <p>Faculty requested an override for Room 101.</p>
+                                <small>2 mins ago</small>
+                            </li>
+                            <li>
+                                <strong>System</strong>
+                                <p>Welcome to the new UniRoom portal!</p>
+                                <small>1 hour ago</small>
+                            </li>
+                        </ul>
+                        <div class="dropdown-footer"><a href="#">View All</a></div>
+                    </div>
+                </div>
+
+                <div class="message-container" onclick="toggleMessage()">
+                    <div class="message-icon">
+                        <i class='bx bxs-chat'></i>
+                        <span class="badge" id="message-count">1</span>
+                    </div>
+                    
+                    <div id="message-dropdown" class="dropdown-content">
+                        <div class="dropdown-header">Messages</div>
+                        <ul id="message-items">
+                            <li class="unread">
+                                <strong>Admin</strong>
+                                <p>Room 101 booking has been overridden.</p>
+                                <small>12 mins ago</small>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="user-badge">
+                    <span class="role-tag student">Student</span>
+                </div>
             </div>
         </header>
 
@@ -36,66 +83,78 @@
             <div class="stat-card">
                 <i class='bx bx-time-five'></i>
                 <div>
-                    <h3>Pending Requests</h3>
+                    <h3>Pending</h3>
                     <p class="stat-number">04</p>
                 </div>
             </div>
             <div class="stat-card">
                 <i class='bx bx-calendar-star'></i>
                 <div>
-                    <h3>Upcoming Bookings</h3>
+                    <h3>Upcoming</h3>
                     <p class="stat-number">12</p>
                 </div>
             </div>
             <div class="stat-card">
                 <i class='bx bx-check-double'></i>
                 <div>
-                    <h3>Total Approved</h3>
+                    <h3>Approved</h3>
                     <p class="stat-number">45</p>
                 </div>
             </div>
         </section>
 
-        <section id="notification-area" class="card notification-hidden">
-            <div class="alert-content">
-                <i class='bx bxs-bell-ring'></i>
-                <div class="alert-text">
-                    <strong>Booking Cancelled</strong>
-                    <p id="notif-message">Your Room 101 booking was overridden by Faculty.</p>
-                </div>
-                <button class="close-notif" onclick="this.parentElement.parentElement.remove()">×</button>
-            </div>
-        </section>
-
         <div class="content-split">
-            <section class="search-section">
-                <h2>Quick Search</h2>
-                <div class="search-box">
-                    <input type="text" placeholder="Search by Room ID or Building...">
-                    <button class="btn-primary">Find Room</button>
-                </div>
-            </section>
-
-            <section class="event-viewer">
-                <h2>Upcoming Campus Events</h2>
-                <ul class="event-list">
-                    <li>
-                        <div class="date-tag">JAN 15</div>
-                        <div class="event-details">
-                            <strong>AI Workshop</strong>
-                            <p>Room 402 • 10:00 AM</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date-tag">JAN 18</div>
-                        <div class="event-details">
-                            <strong>Debate Club Finals</strong>
-                            <p>Main Hall • 02:30 PM</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+    <section class="card-container">
+        <div class="card-header">
+            <h2><i class='bx bx-search'></i> Quick Search</h2>
         </div>
+        <div class="search-body">
+            <p>Find available rooms by building or ID.</p>
+            <div class="search-bar-wrapper">
+                <input type="text" placeholder="e.g., Science Lab, Room 202...">
+                <button class="btn-primary">Search</button>
+            </div>
+            <div class="quick-filters">
+                <span>Suggestions:</span>
+                <button class="filter-chip">Labs</button>
+                <button class="filter-chip">Hall</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="card-container">
+        <div class="card-header">
+            <h2><i class='bx bx-calendar-event'></i> Campus Events</h2>
+        </div>
+        <div class="event-body">
+            <ul class="event-list">
+                <li class="event-item">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">JAN</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>AI Workshop</strong>
+                        <p>Room 402 • 10:00 AM</p>
+                    </div>
+                    <i class='bx bx-chevron-right'></i>
+                </li>
+                <li class="event-item">
+                    <div class="event-date">
+                        <span class="day">18</span>
+                        <span class="month">JAN</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Debate Finals</strong>
+                        <p>Main Hall • 02:30 PM</p>
+                    </div>
+                    <i class='bx bx-chevron-right'></i>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
     </main>
+
 </body>
 </html>
