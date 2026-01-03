@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniRoom - Dashboard</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class='bx bxs-school'></i>
+            <span>UniRoom</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="search.html" class="active"><i class='bx bx-search-alt'></i> Search Rooms</a></li>
+            <li><a href="bookings.html"><i class='bx bx-calendar-check'></i> My Bookings</a></li>
+            <li><a href="pending.html"><i class='bx bx-bell'></i> Pending Tasks</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <h1>Search Available Rooms</h1>
+        </header>
+
+        <section class="card">
+            <form id="searchForm" class="search-input-group">
+                <input type="date" id="searchDate">
+                <select id="roomType">
+                    <option value="lab">Laboratory</option>
+                    <option value="classroom">Classroom</option>
+                    <option value="hall">Lecture Hall</option>
+                </select>
+                <button type="submit" class="btn-primary">Check Availability</button>
+            </form>
+        </section>
+
+        <section class="card" style="margin-top: 20px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="text-align: left; border-bottom: 2px solid #eee;">
+                        <th style="padding: 10px;">Room</th>
+                        <th>Capacity</th>
+                        <th>Equipment</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTable">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

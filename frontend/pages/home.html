@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniRoom - Dashboard</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <i class='bx bxs-school'></i>
+            <span>UniRoom</span>
+        </div>
+        <ul class="nav-links">
+            <ul class="nav-links">
+            <li><a href="home.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="search.html"><i class='bx bx-search-alt'></i> Search Rooms</a></li>
+            <li><a href="bookings.html"><i class='bx bx-calendar-check'></i> My Bookings</a></li>
+            <li><a href="pending.html"><i class='bx bx-bell'></i> Pending Tasks</a></li>
+        </ul>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <h1>Welcome Back, <span id="username">Professor Smith</span></h1>
+            <div class="user-profile">
+                <span class="badge faculty">Faculty</span>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <i class='bx bx-time-five'></i>
+                <div>
+                    <h3>Pending Requests</h3>
+                    <p class="stat-number">04</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class='bx bx-calendar-star'></i>
+                <div>
+                    <h3>Upcoming Bookings</h3>
+                    <p class="stat-number">12</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class='bx bx-check-double'></i>
+                <div>
+                    <h3>Total Approved</h3>
+                    <p class="stat-number">45</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="notification-area" class="card notification-hidden">
+            <div class="alert-content">
+                <i class='bx bxs-bell-ring'></i>
+                <div class="alert-text">
+                    <strong>Booking Cancelled</strong>
+                    <p id="notif-message">Your Room 101 booking was overridden by Faculty.</p>
+                </div>
+                <button class="close-notif" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <section class="search-section">
+                <h2>Quick Search</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="Search by Room ID or Building...">
+                    <button class="btn-primary">Find Room</button>
+                </div>
+            </section>
+
+            <section class="event-viewer">
+                <h2>Upcoming Campus Events</h2>
+                <ul class="event-list">
+                    <li>
+                        <div class="date-tag">JAN 15</div>
+                        <div class="event-details">
+                            <strong>AI Workshop</strong>
+                            <p>Room 402 • 10:00 AM</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date-tag">JAN 18</div>
+                        <div class="event-details">
+                            <strong>Debate Club Finals</strong>
+                            <p>Main Hall • 02:30 PM</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
