@@ -1,0 +1,82 @@
+/* Admin Page Styles */
+.admin-table-wrapper {
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.admin-table th {
+    background: rgba(238, 107, 67, 0.1);
+    color: var(--text-dark);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #555;
+}
+
+.admin-table tr {
+    cursor: pointer;
+}
+
+.admin-table tr:hover {
+    background: rgba(238, 107, 67, 0.05);
+}
+
+.btn-approve {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.btn-deny {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.priority-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.priority-1 { background: rgba(33, 150, 243, 0.2); color: #1976D2; }
+.priority-2 { background: rgba(255, 193, 7, 0.2); color: #F57C00; }
+.priority-3 { background: rgba(156, 39, 176, 0.2); color: #7b1fa2; }
+
+.request-details {
+    background: rgba(238, 107, 67, 0.05);
+    padding: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.request-details h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}

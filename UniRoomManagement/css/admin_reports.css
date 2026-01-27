@@ -1,0 +1,40 @@
+/* Admin Reports Page Styles */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+th {
+    background: rgba(238, 107, 67, 0.1);
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.sev-low {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.sev-medium {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.sev-high {
+    background: #ffebee;
+    color: #d32f2f;
+}

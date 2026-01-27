@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniRoom - Admin Panel</title>
+    <link rel="stylesheet" href="..css/adminstyle.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <nav class="sidebar">
+    <div class="logo">
+        <i class='bx bxs-shield-quarter'></i>
+        <span>UniRoom Admin</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="admin.html"><i class='bx bx-check-shield'></i> Approvals</a></li>
+        <li><a href="manage_rooms.html"><i class='bx bx-door-open'></i> Manage Rooms</a></li>
+        <li><a href="manage_users.html"><i class='bx bx-group'></i> Users</a></li>
+        <li style="margin-top: auto;"><a href="loginstudent.html"><i class='bx bx-log-out'></i> Exit Admin</a></li>
+    </ul>
+    </nav>
+
+    <main class="main-content">
+        <header><h1>User Management</h1></header>
+
+        <section class="card-container" style="margin-bottom: 2rem;">
+        <div class="card-header">
+            <h2><i class='bx bx-user-voice'></i> Search & Filter Users</h2>
+        </div>
+        <div class="search-body" style="display: flex; gap: 15px; align-items: center;">
+            <div class="search-bar-wrapper" style="flex: 2; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 6px; padding: 0 10px;">
+                <i class='bx bx-search' style="color: #888;"></i>
+                <input type="text" id="userSearchInput" placeholder="Search by Name or Email..." class="admin-input" style="border: none; width: 100%;">
+            </div>
+            
+            <select id="filterRole" class="admin-input" style="flex: 1;">
+                <option value="all">All Roles</option>
+                <option value="Student">Student</option>
+                <option value="Club Member">Club Member</option>
+                <option value="Faculty">Faculty</option>
+            </select>
+
+            <button class="btn-primary" onclick="filterUsers()" style="flex: 0.5;">Filter</button>
+        </div>
+        </section>
+
+        <section class="card-container">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@uni.edu</td>
+                        <td>Student</td>
+                        <td><span class="badge" style="background:#ee6b43; color:white;">1</span></td>
+                        <td><button class="btn-approve">Promote</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Sarah Smith</td>
+                        <td>sarah@uni.edu</td>
+                        <td>Faculty</td>
+                        <td><span class="badge" style="background:#ee6b43; color:white;">3</span></td>
+                        <td><button class="btn-deny">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Fazlur Karim</td>
+                        <td>faz@uni.edu</td>
+                        <td>Club Member</td>
+                        <td><span class="badge" style="background:#ee6b43; color:white;">2</span></td>
+                        <td><button class="btn-deny">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
